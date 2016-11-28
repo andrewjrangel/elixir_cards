@@ -42,6 +42,13 @@ defmodule Cards do
 
   @doc """
     Returns a bool that will be true if card exists in the deck
+
+  ## Examples
+
+  iex> deck = Cards.create_deck
+  iex> Cards.contains?(deck, "Ace of Spades")
+  true
+
   """
   def contains?(deck, card) do
     Enum.member?(deck, card)
@@ -67,7 +74,7 @@ defmodule Cards do
 
   @doc """
     Pipes together create_deck \> shuffle \> deal
-    Returns a hand of the designated size 
+    Returns a tuple {hand, deck} a hand of the designated size, and the cards remaining in the deck
   """
   def create_hand(hand_size) do
     Cards.create_deck
